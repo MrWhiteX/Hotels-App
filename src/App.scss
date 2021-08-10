@@ -1,0 +1,12 @@
+@import "./components//scss/reset";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web&display=swap");
+@import "./components/scss/header";
+@import "./components/scss/menu";
+@import "./components/scss/jumbo";
+@import "./components/scss/hotels";
+
+html {
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+}
