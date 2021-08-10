@@ -1,0 +1,53 @@
+.hotels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 30px;
+  height: 100vh;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 2rem;
+  }
+
+  span {
+    font-size: 2rem;
+    padding-top: 1rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+  }
+}
+
+// HOTEL
+
+.single__hotel {
+  height: 200px;
+  width: 400px;
+  margin-bottom: 120px;
+  background: green;
+  position: relative;
+
+  &--description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    background: #f0f0f0;
+    width: 100%;
+    height: 50px;
+    bottom: -50px;
+
+    span {
+      padding: 0 15px;
+    }
+  }
+}
