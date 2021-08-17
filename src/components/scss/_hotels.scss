@@ -4,7 +4,6 @@
   align-items: center;
 
   margin-top: 30px;
-  height: 100vh;
 
   h1 {
     font-size: 2.5rem;
@@ -14,8 +13,12 @@
   }
 
   span {
-    font-size: 2rem;
+    font-size: 1.3rem;
     padding-top: 1rem;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
   }
 
   &__wrapper {
@@ -24,6 +27,14 @@
     flex-wrap: wrap;
 
     margin-top: 20px;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+    }
+
+    @media (min-width: 991px) {
+      justify-content: space-between;
+    }
   }
 }
 
@@ -37,17 +48,21 @@
   position: relative;
 
   &--description {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: absolute;
     background: #f0f0f0;
     width: 100%;
-    height: 50px;
-    bottom: -50px;
+    height: 80px;
+    bottom: -80px;
+    padding: 0px 15px;
 
-    span {
-      padding: 0 15px;
+    button {
+      margin-top: 20px;
     }
+  }
+
+  &--info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

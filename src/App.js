@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Jumbo from "./components/Jumbo/Jumbo";
 import Hotels from "./components/Hotels/Hotels";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Menu />
       <Jumbo />
       <Hotels />
+      <Footer />
     </div>
   );
 }

@@ -7,45 +7,63 @@ const Hotel = () => {
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
 
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
 
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
         <div className="single__hotel">
           <div className="single__hotel--img"></div>
           <div className="single__hotel--description">
-            <span>LOKACJA</span>
-            <span>CENA</span>
+            <div className="single__hotel--info">
+              <span>LOKACJA</span>
+              <span>CENA</span>
+            </div>
+            <button>Pokaż</button>
           </div>
         </div>
       </div>
