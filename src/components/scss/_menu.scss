@@ -5,6 +5,10 @@
 
   height: 60px;
 
+  &__wrapper {
+    display: flex;
+  }
+
   ul {
     display: flex;
     cursor: pointer;
@@ -32,4 +36,9 @@
       margin-top: 5px;
     }
   }
+}
+
+.login__class {
+  position: absolute;
+  right: 30px;
 }
