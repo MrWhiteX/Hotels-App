@@ -1,12 +1,10 @@
 import React from "react";
 import Searchbar from "../Searchbar/Searchbar";
 
-const Jumbo = ({ onSearch }) => {
+const Jumbo = (props) => {
   return (
     <section className="jumbo">
-      <div className="jumbo__bg">
-        <Searchbar onSearch={onSearch} />
-      </div>
+      <div className="jumbo__bg">{props.children}</div>
     </section>
   );
 };

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
+import Layout from "./components/Layout/Layout";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Jumbo from "./components/Jumbo/Jumbo";
+import Searchbar from "./components/Searchbar/Searchbar";
 import Hotels from "./components/Hotels/Hotels";
 import Footer from "./components/Footer/Footer";
+import AuthContext from "./components/context/authContext";
 
 const allHotels = [
   {
@@ -52,24 +55,38 @@ const allHotels = [
 ];
 
 const App = () => {
-  const [state, setState] = useState({
-    hotels: allHotels,
-  });
+  const [hotels, setHotels] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setHotels(allHotels);
+    setLoading(false);
+  }, []);
 
   const searchHandler = (term) => {
-    console.log(`Szukam z app ${term}`);
     const hotels = [...allHotels].filter((x) =>
       x.name.toLowerCase().includes(term.toLowerCase())
     );
-    setState({ hotels });
+    setHotels(hotels);
   };
   return (
     <div className="App">
-      <Header />
-      <Menu />
-      <Jumbo onSearch={(term) => searchHandler(term)} />
-      <Hotels hotels={state.hotels} />
-      <Footer />
+      <AuthContext.Provider
+        value={{
+          isAuthenticated,
+          login: () => setIsAuthenticated(true),
+          logout: () => setIsAuthenticated(false),
+        }}
+      >
+        <Header />
+        <Menu />
+        <Jumbo>
+          <Searchbar onSearch={(term) => searchHandler(term)} />
+        </Jumbo>
+        <Hotels hotels={hotels} loading={loading} />
+        <Footer />
+      </AuthContext.Provider>
     </div>
   );
 };
