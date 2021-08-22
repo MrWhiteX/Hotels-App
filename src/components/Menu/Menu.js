@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
-import AuthContext from "../context/authContext";
+import React from "react";
+import useAuth from "../../hooks/useAuth";
 
 const Menu = () => {
-  const auth = useContext(AuthContext);
+  const [auth, setAuth] = useAuth();
 
   const login = (e) => {
     e.preventDefault();
-    auth.login();
+    setAuth(true);
   };
 
   const logout = (e) => {
     e.preventDefault();
-    auth.logout();
+    setAuth(false);
   };
   return (
     <section className="menu">
@@ -24,7 +24,7 @@ const Menu = () => {
             <a href="">Kontakt</a>
           </li>
           <li className="login__class">
-            {auth.isAuthenticated ? (
+            {auth ? (
               <a href="#" onClick={logout}>
                 Wyloguj
               </a>

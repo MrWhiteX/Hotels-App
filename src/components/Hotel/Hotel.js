@@ -1,6 +1,12 @@
 import React from "react";
 
-const Hotel = ({ hotels }) => {
+const Hotel = (props) => {
+  const { hotels, onOpen } = props;
+
+  const clickHandler = (hotel) => {
+    onOpen(hotel);
+  };
+
   return (
     <div className="col-12">
       <div className="hotels__wrapper">
@@ -14,7 +20,7 @@ const Hotel = ({ hotels }) => {
                   <span>{hotel.price}</span>
                 </div>
                 <span className="single__hotel--city">{hotel.city}</span>
-                <button>Pokaż</button>
+                <button onClick={() => clickHandler(hotel)}>Pokaż</button>
               </div>
             </div>
           );
@@ -24,4 +30,8 @@ const Hotel = ({ hotels }) => {
   );
 };
 
-export default Hotel;
+const areEqual = (prevProps, nextProps) => {
+  return prevProps.hotels === nextProps.hotels;
+};
+
+export default React.memo(Hotel, areEqual);
