@@ -11,61 +11,10 @@ import ReducerContext from "./components/context/reducerContext";
 import { reducer, initialState } from "./reducer";
 import Home from "./pages/Home/Home";
 import SingleHotel from "./pages/SingleHotel/SingleHotel";
-
-const allHotels = [
-  {
-    id: 1,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 2,
-    name: "Staropolski",
-    city: "Wrocław",
-    price: "110 zł/doba",
-    image: "",
-  },
-  {
-    id: 3,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 4,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 5,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 6,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-];
+import Search from "./pages/Search/Search";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const searchHandler = (term) => {
-    const newHotels = [...allHotels].filter((x) =>
-      x.name.toLowerCase().includes(term.toLowerCase())
-    );
-    dispatch({ type: "set-hotels", hotels: newHotels });
-  };
 
   return (
     <div className="App">
@@ -86,11 +35,12 @@ function App() {
             <Header />
             <Menu />
             <Jumbo>
-              <Searchbar onSearch={(term) => searchHandler(term)} />
+              <Searchbar />
             </Jumbo>
             <Switch>
-              <Route exact={true} path="/" component={Home}></Route>
-              <Route path="/hotele/:id" component={SingleHotel}></Route>
+              <Route exact={true} path="/" component={Home} />
+              <Route path="/hotele/:id" component={SingleHotel} />
+              <Route path="/wyszukaj/:term" component={Search} />
             </Switch>
             <Footer />
           </ReducerContext.Provider>
