@@ -2,6 +2,7 @@ import React from "react";
 
 const LastHotel = (props) => {
   const { lastHotel } = props;
+
   return (
     <>
       <div className="container last__hotel">
