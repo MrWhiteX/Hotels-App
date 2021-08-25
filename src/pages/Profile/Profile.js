@@ -1,7 +1,12 @@
 import React from "react";
+import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
 import PersonIcon from "@material-ui/icons/Person";
+import ProfileDetails from "./ProfileDetails/ProfileDetails";
+import MyHotel from "./MyHotels/MyHotel";
 
 const Profile = () => {
+  const { url } = useRouteMatch();
+
   return (
     <section className="profile container">
       <div className="profile__title breadcrumb">
@@ -10,21 +15,28 @@ const Profile = () => {
         />
         <h1>Mój profil</h1>
       </div>
-
       <div className="profile__menu">
         <nav className="skew-menu">
           <ul>
             <li>
-              <a href="#">Profil</a>
+              <Link exact to={`${url}`}>
+                Profil
+              </Link>
             </li>
             <li>
-              <a href="#">Hotele</a>
+              <Link to={`${url}/hotele`}>Hotele</Link>
             </li>
             <li>
-              <a href="#">Cosik jeszcze</a>
+              <Link to={`${url}`}>Cosik jeszcze</Link>
             </li>
           </ul>
         </nav>
+      </div>
+      <div className="profile__wrapper">
+        <Switch>
+          <Route path={`${url}/hotele`} component={MyHotel} />
+          <Route path={`${url}`} component={ProfileDetails} />
+        </Switch>
       </div>
     </section>
   );
