@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 const Searchbar = ({ onSearch }) => {
   const [term, setTerm] = useState("");
+
+  const history = useHistory();
+
   const searchHandler = () => {
-    onSearch(term);
+    history.push(`/wyszukaj/${term}`);
   };
   const inputRef = useRef(null);
 

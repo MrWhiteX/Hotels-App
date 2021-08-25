@@ -14,13 +14,22 @@ const Menu = () => {
     e.preventDefault();
     setAuth(false);
   };
+
+  const styles = {
+    textDecoration: "underline",
+  };
   return (
     <section className="menu">
       <div className="container menu__wrapper">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link exact to="/" className="menuItemActive">
+              Home
+            </Link>
           </li>
+
+          {auth ? <Link to="/profil">Mój profil</Link> : null}
+
           <li>
             <a href="">Kontakt</a>
           </li>

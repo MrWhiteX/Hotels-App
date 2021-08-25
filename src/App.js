@@ -12,7 +12,7 @@ import { reducer, initialState } from "./reducer";
 import Home from "./pages/Home/Home";
 import SingleHotel from "./pages/SingleHotel/SingleHotel";
 import Search from "./pages/Search/Search";
-
+import Profile from "./pages/Profile/Profile";
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -32,17 +32,33 @@ function App() {
               dispatch: dispatch,
             }}
           >
-            <Header />
-            <Menu />
-            <Jumbo>
-              <Searchbar />
-            </Jumbo>
             <Switch>
-              <Route exact={true} path="/" component={Home} />
-              <Route path="/hotele/:id" component={SingleHotel} />
-              <Route path="/wyszukaj/:term" component={Search} />
+              <Route path="/hotele/:id">
+                <Header />
+                <Menu />
+                <Search />
+                <SingleHotel />
+              </Route>
+              <Route path="/wyszukaj/:term">
+                <Header />
+                <Menu />
+                <Search />
+              </Route>
+              <Route path="/profil">
+                <Header />
+                <Menu />
+                <Profile />
+              </Route>
+              <Route exact={true} path="/">
+                <Header />
+                <Menu />
+                <Jumbo>
+                  <Searchbar />
+                </Jumbo>
+                <Home />
+                <Footer />
+              </Route>
             </Switch>
-            <Footer />
           </ReducerContext.Provider>
         </AuthContext.Provider>
       </Router>
