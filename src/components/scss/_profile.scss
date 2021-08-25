@@ -1,4 +1,18 @@
+button {
+  font-size: 1.3rem;
+  color: #fff;
+  background: #ff9f1c;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 45px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 .profile {
+  height: 100vh;
   &__title {
     display: flex;
     align-items: center;
@@ -62,5 +76,38 @@
         transform: skew(25deg);
       }
     }
+  }
+}
+
+// PROFILE DETAILS COMPONENT
+
+.profile__details {
+  padding-top: 8rem;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// MY HOTEL FROM PROFILE COMPONENT
+.my__hotel {
+  padding-top: 8rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 15px;
   }
 }

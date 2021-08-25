@@ -1,5 +1,10 @@
 import React, { useReducer } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
@@ -13,6 +18,10 @@ import Home from "./pages/Home/Home";
 import SingleHotel from "./pages/SingleHotel/SingleHotel";
 import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
+import NotFound from "./pages/404/404";
+import Login from "./pages/Auth/Login/Login";
+import AuthenticatedRoute from "./components/AuthenticatedRoute/AuthenticatedRoute";
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -32,33 +41,22 @@ function App() {
               dispatch: dispatch,
             }}
           >
+            <Header />
+            <Menu />
             <Switch>
-              <Route path="/hotele/:id">
-                <Header />
-                <Menu />
-                <Search />
-                <SingleHotel />
-              </Route>
-              <Route path="/wyszukaj/:term">
-                <Header />
-                <Menu />
-                <Search />
-              </Route>
-              <Route path="/profil">
-                <Header />
-                <Menu />
-                <Profile />
-              </Route>
+              <AuthenticatedRoute path="/profil" component={Profile} />
+              <Route path="/hotele/:id" component={SingleHotel} />
+              <Route path="/wyszukaj/:term?" component={Search} />
+              <Route path="/zaloguj" component={Login} />
               <Route exact={true} path="/">
-                <Header />
-                <Menu />
                 <Jumbo>
                   <Searchbar />
                 </Jumbo>
                 <Home />
-                <Footer />
               </Route>
+              <Route component={NotFound} />
             </Switch>
+            <Footer />
           </ReducerContext.Provider>
         </AuthContext.Provider>
       </Router>
