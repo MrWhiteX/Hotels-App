@@ -70,14 +70,10 @@ const AddHotel = () => {
         <h1>Nowy Hotel</h1>
       </div>
       <div className="addhotel__wrapper">
-        <form
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={submit}
-        >
+        <form className={classes.root} autoComplete="off" onSubmit={submit}>
           <div>
             <TextField
+              required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               id="outlined-basic"
@@ -88,6 +84,7 @@ const AddHotel = () => {
 
           <div>
             <TextField
+              required
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
               id="outlined-basic"
@@ -98,6 +95,7 @@ const AddHotel = () => {
           <div className="">
             <div>
               <TextField
+                required
                 value={form.rooms}
                 onChange={(e) => setForm({ ...form, rooms: e.target.value })}
                 id="outlined-basic"
@@ -108,6 +106,7 @@ const AddHotel = () => {
 
             <div>
               <TextareaAutosize
+                required
                 value={form.description}
                 onChange={(e) =>
                   setForm({ ...form, description: e.target.value })
@@ -120,7 +119,7 @@ const AddHotel = () => {
 
             <div className="facilities">
               <h1>Udogodnienia</h1>
-              <div className="facilities__option">
+              <div className="facilities__option ">
                 <label>
                   Parking
                   <Checkbox
@@ -174,7 +173,7 @@ const AddHotel = () => {
             <div className="active">
               <h3>Status</h3>
               <FormControl component="fieldset">
-                <RadioGroup aria-label="gender" name="gender1">
+                <RadioGroup>
                   <FormControlLabel
                     value="1"
                     checked={form.status == 1}

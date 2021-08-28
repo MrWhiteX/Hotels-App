@@ -1,3 +1,25 @@
 .login {
-  height: 100vh;
+  height: 68vh;
+  padding-top: 5rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    padding-bottom: 2rem;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+      text-align: left;
+    }
+  }
 }
