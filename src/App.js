@@ -15,7 +15,8 @@ import SingleHotel from "./pages/SingleHotel/SingleHotel";
 import Search from "./pages/Search/Search";
 import NotFound from "./pages/404/404";
 import Login from "./pages/Auth/Login/Login";
-import AuthenticatedRoute from "./components/AuthenticatedRoute/AuthenticatedRoute";
+import AuthenticatedRoute from "./hoc/AuthenticatedRoute";
+import AddHotel from "./pages/Profile/MyHotels/AddHotel/AddHotel";
 
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 
@@ -43,6 +44,10 @@ function App() {
             <Menu />
             <Suspense fallback={<p>Ładowanie...</p>}>
               <Switch>
+                <AuthenticatedRoute
+                  path="/profil/hotele/dodaj"
+                  component={AddHotel}
+                />
                 <AuthenticatedRoute path="/profil" component={Profile} />
                 <Route path="/hotele/:id" component={SingleHotel} />
                 <Route path="/wyszukaj/:term?" component={Search} />
