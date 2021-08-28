@@ -39,9 +39,7 @@ const Menu = () => {
                 Wyloguj
               </a>
             ) : (
-              <a href="#" onClick={login}>
-                Zaloguj
-              </a>
+              <Link to="/zaloguj">Zaloguj</Link>
             )}
           </li>
         </ul>

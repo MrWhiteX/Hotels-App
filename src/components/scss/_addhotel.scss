@@ -1,0 +1,48 @@
+.addhotel__wrapper {
+  padding-top: 2rem;
+
+  textarea {
+    margin-top: 30px;
+  }
+}
+
+.facilities {
+  margin-top: 30px;
+  width: 100%;
+
+  h1 {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      width: 60vw;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.image {
+  margin: 30px 0;
+  h2 {
+    font-size: 2rem;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+}
+
+.active {
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  span {
+    font-size: 1.8rem;
+  }
+}
