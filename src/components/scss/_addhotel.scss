@@ -46,3 +46,11 @@
     font-size: 1.8rem;
   }
 }
+
+.single__field {
+  label {
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}

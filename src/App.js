@@ -1,4 +1,4 @@
-import React, { useReducer, lazy, Suspense } from "react";
+import React, { useEffect, useReducer, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
@@ -17,6 +17,7 @@ import NotFound from "./pages/404/404";
 import Login from "./pages/Auth/Login/Login";
 import AuthenticatedRoute from "./hoc/AuthenticatedRoute";
 import AddHotel from "./pages/Profile/MyHotels/AddHotel/AddHotel";
+import Register from "./pages/Auth/Register/Register";
 
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 
@@ -29,8 +30,8 @@ function App() {
       <Router>
         <AuthContext.Provider
           value={{
-            isAuthenticated: state.isAuthenticated,
-            login: () => dispatch({ type: "login" }),
+            user: state.user,
+            login: (user) => dispatch({ type: "login", user }),
             logout: () => dispatch({ type: "logout" }),
           }}
         >
@@ -52,6 +53,7 @@ function App() {
                 <Route path="/hotele/:id" component={SingleHotel} />
                 <Route path="/wyszukaj/:term?" component={Search} />
                 <Route path="/zaloguj" component={Login} />
+                <Route path="/zarejestruj" component={Register} />
                 <Route exact={true} path="/">
                   <Jumbo>
                     <Searchbar />

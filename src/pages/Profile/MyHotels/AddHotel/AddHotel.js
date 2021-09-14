@@ -71,7 +71,7 @@ const AddHotel = () => {
       </div>
       <div className="addhotel__wrapper">
         <form className={classes.root} autoComplete="off" onSubmit={submit}>
-          <div>
+          <div className="single__field">
             <TextField
               required
               value={form.name}
@@ -79,10 +79,11 @@ const AddHotel = () => {
               id="outlined-basic"
               label="Nazwa hotelu"
               variant="outlined"
+              z
             />
           </div>
 
-          <div>
+          <div className="single__field">
             <TextField
               required
               value={form.city}
@@ -92,8 +93,8 @@ const AddHotel = () => {
               variant="outlined"
             />
           </div>
-          <div className="">
-            <div>
+          <div>
+            <div className="single__field">
               <TextField
                 required
                 value={form.rooms}
