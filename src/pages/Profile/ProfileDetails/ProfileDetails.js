@@ -3,6 +3,7 @@ import LoadingButton from "../../../components/UI/LoadingIcon/LoadingButton/Load
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
+import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProfileDetails = () => {
-  const [email, setEmail] = useState("email@frombackend.com");
+  const [auth] = useAuth();
+  const [email, setEmail] = useState(auth.email);
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({
@@ -27,23 +29,15 @@ const ProfileDetails = () => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      if (false) {
-        // setAuth(true);
-        // history.push("/");
-      } else {
-        // setValid(false);
-      }
-      setLoading(false);
-      setPassword("");
-    }, 1000);
+    setLoading(false);
+    setPassword("");
   };
 
   useEffect(() => {
-    if (password.length >= 4 || !password) {
+    if (password.length >= 6 || !password) {
       setErrors({ ...errors, password: "" });
     } else {
-      setErrors({ ...errors, password: "Wymagane 4 znaki" });
+      setErrors({ ...errors, password: "Wymagane 6 znaków" });
     }
   }, [password]);
 

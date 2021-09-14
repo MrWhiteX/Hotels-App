@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Route, Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,26 +22,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login(props) {
+export default function Register(props) {
   const [auth, setAuth] = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [valid, setValid] = useState(null);
-  const [error, setError] = useState("");
   const history = useHistory();
   const classes = useStyles();
+  const [error, setError] = useState("");
 
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const res = await axios.post("accounts:signInWithPassword", {
+      const res = await axios.post("accounts:signUp", {
         email,
         password,
         returnSecureToken: true,
       });
+
       setAuth({
         email: res.data.email,
         token: res.data.idToken,
@@ -50,28 +50,26 @@ export default function Login(props) {
       });
       history.push("/");
     } catch (ex) {
-      setLoading(false);
-      setPassword("");
+      console.log(ex.response);
+
       switch (ex.response.data.error.message) {
-        case "INVALID_PASSWORD":
-          setError("Niepoprawne hasło");
+        case "WEAK_PASSWORD : Password should be at least 6 characters":
+          setError("Zbyt słabe hasło - powinno zawierać conajmniej 6 znaków");
           break;
-        case "EMAIL_NOT_FOUND":
-          setError("Brak konta o podanym adresie email");
+        case "EMAIL_EXISTS":
+          setError("Ten email już istnieje");
           break;
         default:
           setError("Nieoczekiwany błąd skontaktuj się z biurem obsługi");
       }
     }
-  };
 
-  if (auth) {
-    history.push("/");
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="login container">
-      <h1>Wpisz dane,aby się zalogować</h1>
+      <h1>Wpisz dane,aby zarejestrować</h1>
       {error ? (
         <div>
           <Alert
@@ -100,15 +98,9 @@ export default function Login(props) {
           variant="outlined"
         />
         <div className="">
-          <LoadingButton loading={loading} label={"Zaloguj"} />
+          <LoadingButton loading={loading} label={"Rejestruj"} />
         </div>
       </form>
-
-      <div className="createaccount_message">
-        <p className="">Nie posiadasz konta w naszym serwisie? Stwórz je!</p>
-
-        <Link to="/zarejestruj">Zarejestruj</Link>
-      </div>
     </div>
   );
 }

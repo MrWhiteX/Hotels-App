@@ -1,14 +1,15 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "login":
-      return { ...state, isAuthenticated: true };
+      return { ...state, user: action.user };
     case "logout":
-      return { ...state, isAuthenticated: false };
+      return { ...state, user: null };
 
     default:
       throw new Error("Nie ma takiej akcji: " + action.type);
   }
 };
+
 export const initialState = {
-  isAuthenticated: false,
+  user: JSON.parse(window.localStorage.getItem("token-data")) ?? null,
 };
