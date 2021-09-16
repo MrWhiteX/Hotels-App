@@ -27,7 +27,6 @@ export default function Register(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [valid, setValid] = useState(null);
   const history = useHistory();
   const classes = useStyles();
   const [error, setError] = useState("");
@@ -46,7 +45,7 @@ export default function Register(props) {
       setAuth({
         email: res.data.email,
         token: res.data.idToken,
-        userId: res.localId,
+        userId: res.data.localId,
       });
       history.push("/");
     } catch (ex) {

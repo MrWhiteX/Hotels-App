@@ -2,10 +2,10 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function LoadingButton(props) {
   return props.loading ? (
-    <button>
+    <button className="button__profile">
       <CircularProgress size="15px" />
     </button>
   ) : (
-    <button>{props.label}</button>
+    <button className="button__profile">{props.label}</button>
   );
 }

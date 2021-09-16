@@ -19,7 +19,7 @@ const Hotel = (props) => {
               <div className="single__hotel--description">
                 <div className="single__hotel--info">
                   <span>{hotel.name}</span>
-                  <span>{hotel.price}</span>
+                  <span>{hotel.price} zł/doba</span>
                 </div>
                 <span className="single__hotel--city">{hotel.city}</span>
                 <Link to={`/hotele/${hotel.id}`}>Pokaż</Link>

@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
 import useAuth from "../../../hooks/useAuth";
+import axios from "../../../axios-auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,22 +16,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProfileDetails = () => {
-  const [auth] = useAuth();
+  const [auth, setAuth] = useAuth();
   const [email, setEmail] = useState(auth.email);
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
   const classes = useStyles();
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     setLoading(false);
     setPassword("");
+
+    try {
+      const data = {
+        idToken: auth.token,
+        email: email,
+        returnSecureToken: true,
+      };
+
+      if (password) {
+        data.password = password;
+      }
+      const res = await axios.post("accounts:update", data);
+      setAuth({
+        email: res.data.email,
+        token: res.data.idToken,
+        userId: res.data.localId,
+      });
+      setSuccess(true);
+    } catch (ex) {
+      console.log(ex.response);
+    }
   };
 
   useEffect(() => {
@@ -44,6 +67,16 @@ const ProfileDetails = () => {
   return (
     <div className="profile__details">
       <h1>Zaaktualizuj swoje dane:</h1>
+      {success ? (
+        <div>
+          <Alert
+            severity="success"
+            style={{ fontSize: "1.4rem", marginTop: 15, marginBottom: 15 }}
+          >
+            Dane zaaktualizowane!
+          </Alert>
+        </div>
+      ) : null}
       <form className={classes.root} autoComplete="off" onSubmit={submit}>
         <TextField
           required
@@ -62,7 +95,7 @@ const ProfileDetails = () => {
         />
 
         <TextField
-          required
+          // required
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -73,7 +106,7 @@ const ProfileDetails = () => {
               <span
                 style={{ fontSize: "1rem", color: "red", position: "absolute" }}
               >
-                Wymagane 4 znaki
+                Wymagane 6 znaki
               </span>
             ) : null
           }
