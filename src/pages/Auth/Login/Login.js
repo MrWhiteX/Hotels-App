@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,7 +28,6 @@ export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [valid, setValid] = useState(null);
   const [error, setError] = useState("");
   const history = useHistory();
   const classes = useStyles();
@@ -46,7 +45,7 @@ export default function Login(props) {
       setAuth({
         email: res.data.email,
         token: res.data.idToken,
-        userId: res.localId,
+        userId: res.data.localId,
       });
       history.push("/");
     } catch (ex) {

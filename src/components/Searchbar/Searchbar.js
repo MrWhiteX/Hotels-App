@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-const Searchbar = ({ onSearch }) => {
+const Searchbar = () => {
   const [term, setTerm] = useState("");
 
   const history = useHistory();
 
-  const searchHandler = () => {
+  const search = () => {
     history.push(`/wyszukaj/${term}`);
   };
   const inputRef = useRef(null);
@@ -26,13 +26,13 @@ const Searchbar = ({ onSearch }) => {
       <input
         ref={inputRef}
         value={term}
-        onKeyDown={(e) => e.key === "Enter" && onSearch(term)}
+        onKeyDown={(e) => e.key === "Enter" && search(term)}
         onChange={(e) => setTerm(e.target.value)}
         type="text"
         placeholder="Szukaj..."
         required
       />
-      <button onClick={searchHandler}>Szukaj</button>
+      <button onClick={search}>Szukaj</button>
     </div>
   );
 };

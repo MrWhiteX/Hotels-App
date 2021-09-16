@@ -1,53 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import Hotels from "../../components/Hotels/Hotels";
 import useStateStorage from "../../hooks/useStateStorage";
 import LoadingIcon from "../../components/UI/LoadingIcon/LoadingIcon";
-
-const allHotels = [
-  {
-    id: 1,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 2,
-    name: "Staropolski",
-    city: "Wrocław",
-    price: "110 zł/doba",
-    image: "",
-  },
-  {
-    id: 3,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 4,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 5,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-  {
-    id: 6,
-    name: "Pod akacjami",
-    city: "Warszawa",
-    price: "130 zł/doba",
-    image: "",
-  },
-];
+import axios from "../../axios";
+import { objectToArrayWithId } from "../../helpers/objects";
 
 const Home = () => {
   const [hotels, setHotels] = useState([]);
@@ -62,11 +19,22 @@ const Home = () => {
     setLastHotel(null);
   };
 
+  const fetchHotels = async () => {
+    try {
+      const res = await axios.get("/hotels.json");
+      const newHotel = objectToArrayWithId(res.data).filter(
+        (hotel) => hotel.status == 1
+      );
+      setHotels(newHotel);
+    } catch (ex) {
+      console.log(ex.response);
+    }
+
+    setLoading(false);
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      setHotels(allHotels);
-      setLoading(false);
-    }, 1000);
+    fetchHotels();
   }, []);
 
   return loading ? (

@@ -2,28 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingIcon from "../../components/UI/LoadingIcon/LoadingIcon";
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
+import axios from "../../axios";
 
 const SingleHotel = () => {
   const [hotel, setHotel] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const setTitle = useWebsiteTitle("Hotele");
+  const setTitle = useWebsiteTitle("Fajny Hotelik");
 
-  const fetchHotel = () => {
-    setHotel({
-      id: 2,
-      name: "Staropolski",
-      city: "Wrocław",
-      price: "110 zł/doba",
-      image: "",
-    });
+  const fetchHotel = async () => {
+    try {
+      const res = await axios.get(`/hotels/${id}.json`);
+      setHotel(res.data);
+    } catch (ex) {
+      console.log(ex.response);
+    }
     setLoading(false);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchHotel();
-    }, 500);
+    fetchHotel();
   }, []);
 
   if (loading) return <LoadingIcon />;
