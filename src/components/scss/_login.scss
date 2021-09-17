@@ -26,6 +26,10 @@
 
 .createaccount_message {
   padding-top: 7rem;
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 
   a {
     text-decoration: none;

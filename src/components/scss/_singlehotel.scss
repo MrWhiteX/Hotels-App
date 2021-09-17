@@ -1,0 +1,96 @@
+.hotel__moreinfo {
+  height: 100%;
+  padding-top: 3rem;
+
+  @media (min-width: 768px) {
+    height: 74vh;
+  }
+
+  &--title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+.box p {
+  color: hsl(240, 1%, 41%);
+  font-size: 1.5rem;
+  margin-top: 20px;
+  line-height: 2.5rem;
+  text-align: left;
+  @media (min-width: 768px) {
+    text-align: center;
+  }
+}
+
+.box {
+  border-radius: 5px;
+  box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+
+  //   @media (max-width: 450px) {
+  //     height: 200px;
+  //   }
+  //   @media (max-width: 950px) and (min-width: 450px) {
+  //     text-align: center;
+  //     height: 180px;
+  //   }
+}
+
+img {
+  float: right;
+}
+
+.cyan {
+  border-top: 3px solid hsl(180, 62%, 55%);
+}
+.red {
+  border-top: 3px solid hsl(0, 78%, 62%);
+}
+.blue {
+  border-top: 3px solid hsl(212, 86%, 64%);
+}
+.orange {
+  border-top: 3px solid hsl(34, 97%, 64%);
+}
+
+h2 {
+  color: hsl(234, 12%, 34%);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+@media (min-width: 950px) {
+  .row1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-down {
+    position: relative;
+    // top: 150px;
+  }
+  .box {
+    width: 100%;
+
+    height: 100%;
+  }
+}

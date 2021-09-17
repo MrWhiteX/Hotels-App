@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Hotel from "../Hotel/Hotel";
 import LastHotel from "./LastHotel";
 
 const Hotels = (props) => {
-  const { hotels, loading, onOpen, onRemove, lastHotel } = props;
+  const { hotels, onOpen, onRemove, lastHotel } = props;
   return (
     <>
       <section className="container hotels">

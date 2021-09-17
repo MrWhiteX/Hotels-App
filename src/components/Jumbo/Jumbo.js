@@ -1,5 +1,4 @@
 import React from "react";
-import Searchbar from "../Searchbar/Searchbar";
 
 const Jumbo = (props) => {
   return (

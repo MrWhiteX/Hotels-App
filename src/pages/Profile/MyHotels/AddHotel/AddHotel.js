@@ -1,33 +1,8 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import PersonIcon from "@material-ui/icons/Person";
 import { useHistory } from "react-router-dom";
-import LoadingButton from "../../../../components/UI/LoadingIcon/LoadingButton/LoadingButton";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  TextField,
-  Checkbox,
-  TextareaAutosize,
-  FormControl,
-  Radio,
-  FormControlLabel,
-  RadioGroup,
-} from "@material-ui/core";
 import axios from "../../../../axios";
-import useAuth from "../../../../hooks/useAuth";
 import HotelForm from "../HotelForm";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-}));
 
 const AddHotel = () => {
   const history = useHistory();

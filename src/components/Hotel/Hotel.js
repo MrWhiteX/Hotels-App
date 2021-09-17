@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Hotel = (props) => {
-  const { hotels, onOpen } = props;
-
-  const clickHandler = (hotel) => {
-    onOpen(hotel);
-  };
+  const { hotels } = props;
 
   return (
     <div className="col-12">

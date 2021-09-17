@@ -19,9 +19,7 @@ const Profile = () => {
         <nav className="skew-menu">
           <ul>
             <li>
-              <Link exact to={`${url}`}>
-                Profil
-              </Link>
+              <Link to={`${url}`}>Profil</Link>
             </li>
             <li>
               <Link to={`${url}/hotele`}>Hotele</Link>
