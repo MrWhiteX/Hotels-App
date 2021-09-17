@@ -23,7 +23,7 @@ const Menu = () => {
           {auth ? <Link to="/profil">Mój profil</Link> : null}
 
           <li>
-            <a href="/#">Kontakt</a>
+            <Link to="/kontakt">Kontakt</Link>
           </li>
           <li className="login__class">
             {auth ? (
