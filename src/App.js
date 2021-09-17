@@ -19,6 +19,7 @@ import AuthenticatedRoute from "./hoc/AuthenticatedRoute";
 import AddHotel from "./pages/Profile/MyHotels/AddHotel/AddHotel";
 import EditHotel from "./pages/Profile/MyHotels/EditHotel/EditHotel";
 import Register from "./pages/Auth/Register/Register";
+import Contact from "./components/Contact/Contact";
 
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 
@@ -58,6 +59,7 @@ function App() {
                 <AuthenticatedRoute path="/profil" component={Profile} />
                 <Route path="/hotele/:id" component={SingleHotel} />
                 <Route path="/wyszukaj/:term?" component={Search} />
+                <Route path="/kontakt" component={Contact} />
                 <Route path="/zaloguj" component={Login} />
                 <Route path="/zarejestruj" component={Register} />
                 <Route exact={true} path="/">

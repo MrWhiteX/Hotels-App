@@ -13,7 +13,10 @@
     padding-top: 4rem;
 
     &--info {
-      span {
+      span,
+      a {
+        text-decoration: none;
+        color: #fff;
         margin-right: 20px;
         font-size: 1.2rem;
       }
