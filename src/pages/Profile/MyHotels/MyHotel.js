@@ -33,6 +33,7 @@ const MyHotel = () => {
 
   useEffect(() => {
     fetchHotels();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -50,7 +51,7 @@ const MyHotel = () => {
             </thead>
             <tbody>
               {hotels.map((hotel) => (
-                <tr>
+                <tr key={hotel.id}>
                   <td style={{ fontSize: 20 }}>{hotel.name}</td>
                   <td>
                     <Link

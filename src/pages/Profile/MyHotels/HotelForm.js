@@ -10,7 +10,7 @@ import {
   FormControlLabel,
   RadioGroup,
 } from "@material-ui/core";
-import axios from "../../../axios";
+// import axios from "../../../axios";
 import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
@@ -69,17 +69,6 @@ const HotelForm = (props) => {
         status: form.status,
         userId: auth.userId,
       });
-      //   const rest = await axios.post("/hotels.json", {
-      //     name: form.name,
-      //     city: form.city,
-      //     price: form.price,
-      //     rooms: form.rooms,
-      //     description: form.description,
-      //     features: form.features,
-      //     status: form.status,
-      //     userId: auth.userId,
-      //   });
-      //   history.push("/profil/hotele");
     } catch (ex) {
       console.log(ex.response);
     }
@@ -91,9 +80,9 @@ const HotelForm = (props) => {
     const newForm = { ...form };
     for (const key in props.hotel) {
       newForm[key] = props.hotel[key];
-      //   setForm(props.hotel);
     }
     setForm(newForm);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.hotel]);
 
   return (
@@ -107,7 +96,6 @@ const HotelForm = (props) => {
             id="outlined-basic"
             label="Nazwa hotelu"
             variant="outlined"
-            z
           />
         </div>
 
@@ -163,9 +151,9 @@ const HotelForm = (props) => {
                 Parking
                 <Checkbox
                   name="checkedB"
-                  value="parking"
+                  value="Parking"
                   onChange={changeFeatureHandler}
-                  checked={form.features.find((x) => x === "parking")}
+                  checked={form.features.find((x) => x === "Parking")}
                   color="secondary"
                 />
               </label>
@@ -173,9 +161,9 @@ const HotelForm = (props) => {
                 WiFi
                 <Checkbox
                   name="checkedB"
-                  value="wifi"
+                  value="WiFi"
                   onChange={changeFeatureHandler}
-                  checked={form.features.find((x) => x === "wifi")}
+                  checked={form.features.find((x) => x === "WiFi")}
                   color="secondary"
                 />
               </label>
@@ -183,9 +171,11 @@ const HotelForm = (props) => {
                 Pokój dla palących
                 <Checkbox
                   name="checkedB"
-                  value="smoke"
+                  value="Można palić papierosy"
                   onChange={changeFeatureHandler}
-                  checked={form.features.find((x) => x === "smoke")}
+                  checked={form.features.find(
+                    (x) => x === "Można palić papierosy"
+                  )}
                   color="secondary"
                 />
               </label>
@@ -193,9 +183,9 @@ const HotelForm = (props) => {
                 Pokój ze zwierzętami
                 <Checkbox
                   name="checkedB"
-                  value="pet"
+                  value="Zabierz zwierzaka"
                   onChange={changeFeatureHandler}
-                  checked={form.features.find((x) => x === "pet")}
+                  checked={form.features.find((x) => x === "Zabierz zwierzaka")}
                   color="secondary"
                 />
               </label>
@@ -215,14 +205,14 @@ const HotelForm = (props) => {
               <RadioGroup>
                 <FormControlLabel
                   value="1"
-                  checked={form.status == 1}
+                  checked={form.status === "1"}
                   onChange={(e) => setForm({ ...form, status: e.target.value })}
                   control={<Radio />}
                   label="Aktywny"
                 />
                 <FormControlLabel
                   value="0"
-                  checked={form.status == 0}
+                  checked={form.status === "0"}
                   onChange={(e) => setForm({ ...form, status: e.target.value })}
                   control={<Radio />}
                   label="Ukryty"

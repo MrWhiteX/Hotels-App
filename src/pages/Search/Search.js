@@ -9,7 +9,6 @@ import Hotels from "../../components/Hotels/Hotels";
 const Search = (props) => {
   const { term } = useParams();
   const [hotels, setHotels] = useState([]);
-  const [noHotel, setNoHotel] = useState(false);
 
   const search = async () => {
     try {
@@ -34,6 +33,7 @@ const Search = (props) => {
 
   useEffect(() => {
     search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [term]);
 
   return (

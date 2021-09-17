@@ -1,5 +1,5 @@
 .addhotel__wrapper {
-  height: 76vh;
+  height: 100%;
   padding-top: 2rem;
 
   textarea {
@@ -49,6 +49,9 @@
 }
 
 .single__field {
+  input[value] {
+    font-size: 1.5rem;
+  }
   label {
     @media (min-width: 768px) {
       font-size: 1.5rem;

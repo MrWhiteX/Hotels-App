@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
 import Hotels from "../../components/Hotels/Hotels";
 import useStateStorage from "../../hooks/useStateStorage";
 import LoadingIcon from "../../components/UI/LoadingIcon/LoadingIcon";
@@ -23,7 +22,7 @@ const Home = () => {
     try {
       const res = await axios.get("/hotels.json");
       const newHotel = objectToArrayWithId(res.data).filter(
-        (hotel) => hotel.status == 1
+        (hotel) => hotel.status === "1"
       );
       setHotels(newHotel);
     } catch (ex) {

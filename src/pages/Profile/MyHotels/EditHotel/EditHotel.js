@@ -22,6 +22,7 @@ const EditHotel = () => {
 
   useEffect(() => {
     fetchHotel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -62,6 +62,7 @@ const ProfileDetails = () => {
     } else {
       setErrors({ ...errors, password: "Wymagane 6 znaków" });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password]);
 
   return (
@@ -79,6 +80,7 @@ const ProfileDetails = () => {
       ) : null}
       <form className={classes.root} autoComplete="off" onSubmit={submit}>
         <TextField
+          className="single__field"
           required
           type="email"
           value={email}
@@ -96,6 +98,7 @@ const ProfileDetails = () => {
 
         <TextField
           // required
+          className="single__field"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

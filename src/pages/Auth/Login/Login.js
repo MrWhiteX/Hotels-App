@@ -83,6 +83,7 @@ export default function Login(props) {
       ) : null}
       <form className={classes.root} autoComplete="off" onSubmit={submit}>
         <TextField
+          className="single__field"
           required
           type="email"
           value={email}
@@ -91,6 +92,7 @@ export default function Login(props) {
           variant="outlined"
         />
         <TextField
+          className="single__field"
           required
           type="password"
           value={password}
