@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Hotels from "../../components/Hotels/Hotels";
 import useStateStorage from "../../hooks/useStateStorage";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 import LoadingIcon from "../../components/UI/LoadingIcon/LoadingIcon";
 import axios from "../../axios";
 import { objectToArrayWithId } from "../../helpers/objects";
@@ -9,6 +10,7 @@ const Home = () => {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lastHotel, setLastHotel] = useStateStorage("last-hotel", null);
+  const setTitle = useWebsiteTitle("Strona Główna");
 
   const openHotel = (hotel) => {
     setLastHotel(hotel);

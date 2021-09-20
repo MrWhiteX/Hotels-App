@@ -1,6 +1,8 @@
 import React from "react";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Contact = () => {
+  const setTitle = useWebsiteTitle("Kontakt");
   const handleSubmit = (e) => {
     e.preventDefault();
   };

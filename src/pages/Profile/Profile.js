@@ -3,9 +3,11 @@ import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
 import PersonIcon from "@material-ui/icons/Person";
 import ProfileDetails from "./ProfileDetails/ProfileDetails";
 import MyHotel from "./MyHotels/MyHotel";
+import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Profile = () => {
   const { url } = useRouteMatch();
+  const setTitle = useWebsiteTitle("Profil");
 
   return (
     <section className="profile container">

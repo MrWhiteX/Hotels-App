@@ -4,11 +4,13 @@ import { useHistory } from "react-router-dom";
 import axios from "../../../../axios";
 import { useParams } from "react-router-dom";
 import HotelForm from "../HotelForm";
+import useWebsiteTitle from "../../../../hooks/useWebsiteTitle";
 
 const EditHotel = () => {
   const { id } = useParams();
   const history = useHistory();
   const [hotel, setHotel] = useState(null);
+  const setTitle = useWebsiteTitle();
 
   const submit = async (form) => {
     await axios.put(`/hotels/${id}.json`, form);
@@ -18,6 +20,7 @@ const EditHotel = () => {
   const fetchHotel = async () => {
     const res = await axios.get(`/hotels/${id}.json`);
     setHotel(res.data);
+    setTitle(`Edycja ${res.data.name}`);
   };
 
   useEffect(() => {
