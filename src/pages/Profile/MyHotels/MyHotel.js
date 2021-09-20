@@ -3,11 +3,13 @@ import { Link, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import axios from "../../../axios";
 import { objectToArrayWithId } from "../../../helpers/objects";
+import useWebsiteTitle from "../../../hooks/useWebsiteTitle";
 
 const MyHotel = () => {
   const [auth] = useAuth();
   const { url } = useRouteMatch();
   const [hotels, setHotels] = useState([]);
+  const setTitle = useWebsiteTitle("Moje Hotele");
 
   const fetchHotels = async () => {
     try {

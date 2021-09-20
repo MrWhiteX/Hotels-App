@@ -63,25 +63,7 @@ const SingleHotel = () => {
       <div className="row2-container">
         <div className="box orange">
           <h2>Opis</h2>
-          <p className="box__description">
-            Obiekt Góralska Osada Karpacz - Domki Lux położony jest w
-            miejscowości Karpacz w regionie dolnośląskie i oferuje bezpłatne
-            WiFi, sprzęt do grillowania, ogród oraz bezpłatny prywatny parking.
-            Odległość ważnych miejsc od obiektu: Western City – 4,2 km.
-            Wszystkie opcje zakwaterowania wyposażono w sofę i telewizor z
-            płaskim ekranem z dostępem do kanałów satelitarnych. W każdej opcji
-            do dyspozycji Gości jest też część wypoczynkowa oraz kuchnia z
-            pełnym wyposażeniem i jadalnią. Wyposażenie obejmuje również
-            lodówkę, piekarnik, płytę kuchenną i czajnik. Obiekt dysponuje
-            tarasem. W obiekcie Goście mogą grać w bilard. Okolica cieszy się
-            popularnością wśród miłośników trekkingu i narciarstwa. Odległość
-            ważnych miejsc od obiektu: Świątynia Wang – 5 km, Tor Saneczkowy –
-            2,1 km. Najbliższe lotnisko, Lotnisko im. Mikołaja Kopernika we
-            Wrocławiu, znajduje się 87 km od obiektu goralska osada domki.
-            Goście mogą skorzystać z płatnego transferu lotniskowego. Parom
-            bardzo się podoba ta lokalizacja – za pobyt dla 2 osób oceniają ją
-            na 8,5 Mówimy w Twoim języku!
-          </p>
+          <p className="box__description">{hotel.description}</p>
 
           <p>Ilość dostępnych pokoi: {hotel.rooms}</p>
           <p>Cena za dobę: {hotel.price} zł</p>

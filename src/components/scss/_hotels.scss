@@ -23,14 +23,10 @@
 
   &__wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 
     margin-top: 20px;
-
-    @media (min-width: 768px) {
-      justify-content: center;
-    }
 
     @media (min-width: 991px) {
       justify-content: space-between;
@@ -44,7 +40,8 @@
   height: 200px;
   width: 400px;
   margin-bottom: 120px;
-  background: green;
+  background: url(../../assets//example.jpg) center;
+  background-size: cover;
   position: relative;
 
   &--description {
